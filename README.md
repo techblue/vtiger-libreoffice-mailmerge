@@ -9,9 +9,9 @@ Vtiger Mail Merge Module can be used to do mail merge in Vtiger CRM system.
 Requisites
 ----------
 
-> VTiger 6.0
-> VTiger 6.1
-> Libre Office (For editing documents only)
+1. VTiger 6.0
+1. VTiger 6.1
+3. Libre Office (For editing documents only)
 
 -------------
 
