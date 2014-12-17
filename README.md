@@ -1,4 +1,4 @@
-Vtiger-Mail-Merge-Module
+Vtiger-LibreOffice-MailMerge
 ===================
 
 **Description**
