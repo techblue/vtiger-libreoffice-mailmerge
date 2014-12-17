@@ -21,7 +21,7 @@ Requisites
  2. Go to CRM Settings
  3. Under Studio click `Module Manager`
  4. Click `Install from File` option
- 5. Select zip file vtiger-mail-merge.zip provided in the plugin folder.
+ 5. Select zip file Vtiger-LibreOffice-MailMerge_Plugin.zip provided in the plugin folder.
  6. Click Import and install module.
  
 ## Installation on Vtiger 6.1.0##
@@ -29,7 +29,7 @@ Requisites
  2. Go to CRM Settings
  3. Under Studio click `Module Manager`
  4. Click `Install from zip` option
- 5. Select zip file vtiger-mail-merge.zip provided in the plugin folder.
+ 5. Select zip file Vtiger-LibreOffice-MailMerge_Plugin.zip provided in the plugin folder.
  6. Click Import and install module.
 
 StackEdit stores your documents in your browser, which means all your documents are automatically saved locally and are accessible **offline!**
