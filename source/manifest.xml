@@ -1,0 +1,17 @@
+<?xml version='1.0'?>
+<module>
+<exporttime>2014-10-16 09:45:59</exporttime>
+<name>MailMerge</name>
+<label>MailMerge</label>
+<parent>Tools</parent>
+<type>extension</type>
+<version>1.0</version>
+<dependencies>
+<vtiger_version>6.0.0</vtiger_version>
+<vtiger_max_version>6.*</vtiger_max_version>
+</dependencies>
+<tables>
+</tables>
+<crons>
+</crons>
+</module>

@@ -1,0 +1,39 @@
+
+
+<?php
+require_once('include/database/PearDatabase.php');
+require_once('config.php');
+
+class MailMerge_List_View extends Vtiger_Index_View {
+
+    public function process(Vtiger_Request $request) {
+        global $adb;
+        $srcModule = $request->get('src_module');
+        $viewer = $this->getViewer($request);
+        $db = PearDatabase::getInstance();
+        $rs = $db->pquery("select * from vtiger_wordtemplates");
+        $result = $db->pquery("select templateid,filename,description,module from vtiger_wordtemplates");
+        $i = 0;
+        $record = array();
+        while ($row = $db->fetch_row($result)) {
+
+            $record[$i] = $row;
+            $i++;
+        }
+        $error = $request->get('error');
+//echo $error;
+        if (isset($error)) {
+            $viewer->assign('ERROR', $error);
+        }
+
+//echo $row["firstname"];
+
+        $viewer->assign('RECORDS', $record);
+        $viewer->assign('SRCMODULE', $srcModule);
+        $viewer->assign('COUNT', count($record));
+
+
+        $viewer->view('ListWordTemplates.tpl', $request->getModule());
+    }
+
+}
