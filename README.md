@@ -4,7 +4,12 @@ Vtiger-LibreOffice-MailMerge
 **Description**
 ----------------
 
-Vtiger Mail Merge Module can be used to do mail merge in Vtiger CRM system. 
+Vtiger Mail Merge Module has following features.
+1. Provide Mail merge functionality in Vtiger CRM system. 
+2. Will automatically latch merge document against the record it is merged.
+3. If mail merge is done on more than one document, all documents can be downloaded as zip file.
+4. User can directly download mail merge templates.
+5. Specific module properties can be viewed using Module Mail Merge Field List
 
 Requisites
 ----------
