@@ -9,7 +9,7 @@
 *
 ********************************************************************************/
 
-require_once('modules/CreateMergeTemplate/include/pclzip.lib.php');
+require_once('modules/MailMerge/include/pclzip.lib.php');
 
 
 //functions for odt mailmerge
