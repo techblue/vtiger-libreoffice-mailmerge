@@ -11,6 +11,8 @@ Vtiger Mail Merge Module has following features.
 4. User can directly download mail merge templates.
 5. Specific module properties can be viewed using Module Mail Merge Field List
 
+
+
 Requisites
 ----------
 
