@@ -78,3 +78,6 @@ The supported modules are Leads, HelpDesk, Accounts, Contacts.
  - Click on Merge  Modules
  - Select “merge {moduleName} Module” link you want to merge and after that  on next page, select one or more items (e.g. one or more Contacts), choose the correct template in the 'Select template to Mail Merge:' combobox and click the 'Merge' button.
  - After Merging, it will produce the merged document and it will automatically latched with document module, and it will also latched with particular record of module  and will show up in document section of that record.
+ - 
+ 
+TAGS - mail-merge-vtiger vtiger-mail-merge libre-mail-merge-vtiger
