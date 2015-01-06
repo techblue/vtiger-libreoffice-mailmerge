@@ -55,23 +55,23 @@ An example template oo-test-template.odt is also included in the archive. The te
 
 Test some Accounts module merge fields
 
-accounts_type=ACCOUNT_TYPE
-accounts_phone=ACCOUNT_PHONE
-accounts_email=ACCOUNT_EMAIL
-accounts_siccode=ACCOUNT_SICCODE
-accounts_accountname=ACCOUNT_ACCOUNTNAME
-accounts_billingaddress=ACCOUNT_BILLINGADDRESS
-accounts_billingcode=ACCOUNT_BILLINGCODE
-accounts_billingstate=ACCOUNT_BILLINGSTATE
-accounts_billingpobox=ACCOUNT_BILLINGPOBOX
-accounts_billingcity=ACCOUNT_BILLINGCITY
-accounts_billingcountry=ACCOUNT_BILLINGCOUNTRY
-accounts_shippingaddress=ACCOUNT_SHIPPINGADDRESS
-accounts_shippingcode=ACCOUNT_SHIPPINGCODE
-accounts_shippingstate=ACCOUNT_SHIPPINGSTATE
-accounts_shippingpobox=ACCOUNT_SHIPPINGPOBOX
-accounts_shippingcity=ACCOUNT_SHIPPINGCITY
-accounts_shippingcountry=ACCOUNT_SHIPPINGCOUNTRY
+- accounts_type=ACCOUNT_TYPE
+- accounts_phone=ACCOUNT_PHONE
+- accounts_email=ACCOUNT_EMAIL
+- accounts_siccode=ACCOUNT_SICCODE
+- accounts_accountname=ACCOUNT_ACCOUNTNAME
+- accounts_billingaddress=ACCOUNT_BILLINGADDRESS
+- accounts_billingcode=ACCOUNT_BILLINGCODE
+- accounts_billingstate=ACCOUNT_BILLINGSTATE
+- accounts_billingpobox=ACCOUNT_BILLINGPOBOX
+- accounts_billingcity=ACCOUNT_BILLINGCITY
+- accounts_billingcountry=ACCOUNT_BILLINGCOUNTRY
+- accounts_shippingaddress=ACCOUNT_SHIPPINGADDRESS
+- accounts_shippingcode=ACCOUNT_SHIPPINGCODE
+- accounts_shippingstate=ACCOUNT_SHIPPINGSTATE
+- accounts_shippingpobox=ACCOUNT_SHIPPINGPOBOX
+- accounts_shippingcity=ACCOUNT_SHIPPINGCITY
+- accounts_shippingcountry=ACCOUNT_SHIPPINGCOUNTRY
 
 The supported modules are Leads, HelpDesk, Accounts, Contacts.
 
