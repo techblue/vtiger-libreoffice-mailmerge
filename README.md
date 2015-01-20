@@ -1,4 +1,4 @@
-Vtiger-LibreOffice-MailMerge V1.0.1
+Vtiger-LibreOffice-MailMerge V1.0.2
 ===================
 
 **Description**
