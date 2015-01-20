@@ -9,6 +9,9 @@
 *
  ********************************************************************************/
 -->*}
+<br />
+&nbsp;&nbsp;<a href="index.php?module=MailMerge&view=createTemplates" style="" class="btn addButton"><i class="icon-plus icon-white"></i>&nbsp;<strong>Add Template</strong></a>
+<br /><br />
 <table width="100%" class="table-bordered" style="border: 1px solid #ddd;table-layout: fixed">
     <tr>{foreach item=RECORD from=$ALPHABETS}
         <td class="alphabetSearch textAlignCenter cursorPointer " style="padding : 0px !important;height:40px"><a id="A" href="index.php?module=MailMerge&view=Contacts&search={$RECORD}"><div class="alphabetSorting noprint">{$RECORD}</div></a></td>
@@ -104,6 +107,8 @@
                                     alert('select an entity');
                                     return false;
                                 } else {
+                                    $('#merged').hide();
+                                    $('.btn-info').hide();
                                     return true;
                                 }
                             });

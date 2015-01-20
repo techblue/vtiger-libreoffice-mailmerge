@@ -17,6 +17,7 @@ class MailMerge_createMergeAccount_View extends Vtiger_Index_View {
 
     public function process(Vtiger_Request $request) {
 // Fix For: http://trac.vtiger.com/cgi-bin/trac.cgi/ticket/2107
+        $default_charset= $GLOBALS['default_charset'];
 
         $randomfilename = "vt_" . str_replace(array(".", " "), "", microtime());
 
@@ -307,7 +308,7 @@ else if(document.all)
     //delete old .odt files in the wordtemplatedownload directory
    foreach (glob("$path*") as $delefile) 
     {
-       if(GetFileExtension($delefile)!='zip'){
+       if(GetFileExtension($delefile)!='zip' && !is_dir($delefile) && file_exists($delefile)){
         unlink($delefile);
         }
       
@@ -414,7 +415,9 @@ else if(document.all)
                 remove_dir($wordtemplatedownloadpath . $temp_dir);
             }
             $zip = new ZipArchive;
+            if(file_exists($wordtemplatedownloadpath . $filename)){
             unlink($wordtemplatedownloadpath . $filename);
+            }
             $zip->open($path . $randomfilename . '.zip', ZipArchive::CREATE);
             foreach (glob($wordtemplatedownloadpath . "*.odt") as $file) {
                 $zip->addFile($file, $file);
@@ -432,7 +435,7 @@ else if(document.all)
     //delete old .odt files in the wordtemplatedownload directory
    foreach (glob("$path*") as $delefile) 
     {
-        if(GetFileExtension($delefile)!='zip'){
+        if(GetFileExtension($delefile)!='zip' && !is_dir($delefile) && file_exists($delefile)){
         unlink($delefile);
         }
       
@@ -532,7 +535,9 @@ else if(document.all)
                 echo "&nbsp;&nbsp;<font size=+1><b><a href=$newfilepath class='btn btn-info' style='width:400px;'>" . 'Download Merged File (' .$aname.')'. "</a></b></font><br>";
             }
             $zip = new ZipArchive;
+            if(file_exists($wordtemplatedownloadpath . $filename)){
             unlink($wordtemplatedownloadpath . $filename);
+            }
             $zip->open($path . $randomfilename . '.zip', ZipArchive::CREATE);
             foreach (glob($wordtemplatedownloadpath . "*.rtf") as $file) {
                 $zip->addFile($file, $file);
