@@ -43,6 +43,8 @@
                                   //  alert('select an entity');
                                    // return false;
                                 //} else {
+                                $('#merged').hide();
+                                    $('.btn-info').hide();
                                     return true;
                                 //}
                             });

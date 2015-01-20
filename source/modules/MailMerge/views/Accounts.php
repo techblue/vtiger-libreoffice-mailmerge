@@ -68,7 +68,7 @@ class MailMerge_Accounts_View extends Vtiger_Index_View {
             die('Could not get data: ' . mysql_error());
         }
         $row = $db->fetch_array($retval, MYSQL_NUM);
-        $rec_count = $row[0];echo $rec_count.'recurd no';
+        $rec_count = $row[0];
         $count = intval($rec_count / $rec_limit);
         if ($rec_count % $rec_limit == 0) {
             //$count=$count+1;
