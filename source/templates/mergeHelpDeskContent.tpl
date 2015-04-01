@@ -9,8 +9,42 @@
 *
  ********************************************************************************/
 -->*}
+<style>
+
+input[type=submit]
+{
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  width:119px;
+  min-height: 28px;
+  background-color: rgb(253, 244, 244);
+  padding: 4px 20px 4px 8px;
+  font-size: 12px;
+  -moz-transition: all .2s linear;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+</style>
+
 <br />
 &nbsp;&nbsp;<a href="index.php?module=MailMerge&view=createTemplates" style="" class="btn addButton"><i class="icon-plus icon-white"></i>&nbsp;<strong>Add Template</strong></a>
+<br />
+
+  <table cellspacing=0 cellpadding=2  align=center>
+  
+    <tr>
+        <td><form name="search" action="index.php" method="post">
+                &nbsp;<input type="text" name="search">
+                 <input type=hidden name=create value="true">
+            <input type=hidden name=module value="MailMerge">
+            <input type=hidden name=view value="HelpDesk">
+                <input type="submit" name="submit" value="Search" class="">
+            </form>
+        </td>
+       
+    </tr>
+</table>
 <br /><br />
 <table width="100%" class="table-bordered" style="border: 1px solid #ddd;table-layout: fixed">
     <tr>{foreach item=RECORD from=$ALPHABETS}
@@ -79,7 +113,12 @@
                             <option value="{$RECORD['templateid']}">{$RECORD['filename']}</option>
                         {/foreach}
 
-                    </select>
+                    </select>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    
+                    <b>Latch with Document: </b>&nbsp;&nbsp;
+                    <input type="checkbox" name="latch_doc[]" class="" value="yes" checked="checked" />
+                      
 
                     <br/>   
 

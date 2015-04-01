@@ -82,6 +82,12 @@ else if(document.all)
 }
 </script>";
         }
+        //for latch with document
+        if (isset($_REQUEST['latch_doc'])) {
+            $latch_doc = $_REQUEST['latch_doc'];
+            $latch = $latch_doc[0];
+        } else
+            $latch = '';
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<for mass merge>>>>>>>>>>>>>>>>>>>>>>>>>>>
 //$mass_merge = $_REQUEST['allselectedboxes'];
@@ -323,8 +329,8 @@ else if(document.all)
             fclose($handle);
         } else if ($extension == "odt") {
             //delete old .odt files in the wordtemplatedownload directory
-                      $randomfilename=$randomfilename.rand(111,999);
-    $path=$wordtemplatedownloadpath;
+        $randomfilename=$randomfilename.rand(111,999);
+        $path=$wordtemplatedownloadpath;
         $wordtemplatedownloadpath.=$randomfilename.'/';
         mkdir($wordtemplatedownloadpath);
     //delete old .odt files in the wordtemplatedownload directory
@@ -372,6 +378,7 @@ else if(document.all)
                 $new_filestyle = crmmerge($csvheader, $stycontent, $idx, 'htmlspecialchars', $csvdata);
                 packen($entityid . $filename, $wordtemplatedownloadpath, $temp_dir, $new_filecontent, $new_filestyle);
 
+                if($latch=='yes'){
                 //latching merged documents with vtiger documents module
           $rs1 = $db->pquery("select max(crmid) as id from vtiger_crmentity");
             if ($row = $db->fetch_row($rs1)) {
@@ -426,7 +433,9 @@ else if(document.all)
             
             $newfilepath=$wordtemplatedownloadpath. $crmid1.'_'.$entityid . $filename;
             rename($wordtemplatedownloadpath.$entityid.$filename,$newfilepath );
-            
+                }else{
+                    $newfilepath=$wordtemplatedownloadpath.$entityid.$filename;
+                }
                 
                 
                 
@@ -495,7 +504,7 @@ else if(document.all)
                 fwrite($handle, $new_filecontent);
                 fclose($handle);
                 
-                
+                if($latch=='yes'){
                    //latching merged documents with vtiger documents module
           $rs1 = $db->pquery("select max(crmid) as id from vtiger_crmentity");
             if ($row = $db->fetch_row($rs1)) {
@@ -529,7 +538,7 @@ else if(document.all)
             $rs8 = $db->pquery("insert into vtiger_notescf (notesid) VALUES ('$crmid') ");
             
             $crmid1=$crmid+1;
-             $rs2 = $db->pquery("insert into vtiger_crmentity (crmid,smcreatorid,smownerid,setype,createdtime,modifiedtime) VALUES('$crmid1','$userid','$userid','Documents Attachment',NOW(),NOW())");
+            $rs2 = $db->pquery("insert into vtiger_crmentity (crmid,smcreatorid,smownerid,setype,createdtime,modifiedtime) VALUES('$crmid1','$userid','$userid','Documents Attachment',NOW(),NOW())");
             $rs3 = $db->pquery("update vtiger_crmentity_seq SET id='$crmid1' ");
             
             $rs4 = $db->pquery("select MAX(attachmentsid) as attachmentsid from vtiger_attachments");
@@ -550,7 +559,9 @@ else if(document.all)
             
             $newfilepath=$wordtemplatedownloadpath. $crmid1.'_'.$entityid . $filename;
             rename($wordtemplatedownloadpath.$entityid.$filename,$newfilepath );
-            
+                }else{
+                    $newfilepath=$wordtemplatedownloadpath.$entityid.$filename;
+                }
                 
 
                 echo "&nbsp;&nbsp;<font size=+1><b><a href=$newfilepath class='btn btn-info' style='width:400px;'>" . 'Download Merged File (' .$tickeTitle.'..)'. "</a></b></font><br>";

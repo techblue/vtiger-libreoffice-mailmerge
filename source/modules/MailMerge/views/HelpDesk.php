@@ -18,6 +18,10 @@ class MailMerge_HelpDesk_View extends Vtiger_Index_View {
         $rec_limit = 20;
         /* Get total number of records */
         $search = $_REQUEST['search'];
+           if($_REQUEST['submit']=='Search'){
+            $search='%'.$_REQUEST['search'];
+        }
+        
         if (isset($_REQUEST['search'])) {
             $sql = "SELECT count(*) FROM vtiger_troubletickets inner join vtiger_crmentity on vtiger_crmentity.crmid=vtiger_troubletickets.ticketid 
 			inner join vtiger_ticketcf on vtiger_ticketcf.ticketid = vtiger_troubletickets.ticketid
