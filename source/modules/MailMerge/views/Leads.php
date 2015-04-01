@@ -21,6 +21,10 @@ class MailMerge_Leads_View extends Vtiger_Index_View {
         $rec_limit = 20;
         /* Get total number of records */
         $search = $_REQUEST['search'];
+           if($_REQUEST['submit']=='Search'){
+            $search='%'.$_REQUEST['search'];
+        }
+        
         if (isset($_REQUEST['search'])) {
             $sql = "SELECT count(*) FROM vtiger_leaddetails inner join vtiger_crmentity on vtiger_crmentity.crmid=vtiger_leaddetails.leadid 
   inner join vtiger_leadsubdetails on vtiger_leadsubdetails.leadsubscriptionid=vtiger_leaddetails.leadid 
@@ -31,7 +35,7 @@ class MailMerge_Leads_View extends Vtiger_Index_View {
   LEFT JOIN vtiger_groups
   	ON vtiger_groups.groupid = vtiger_crmentity.smownerid
   left join vtiger_users on vtiger_users.id = vtiger_crmentity.smownerid
-  where vtiger_crmentity.deleted=0 and (upper(vtiger_leaddetails.firstname) like '$search%')";
+  where vtiger_crmentity.deleted=0 and (upper(vtiger_leaddetails.firstname) like '$search%' OR upper(vtiger_leaddetails.lastname) like '$search%' OR upper(vtiger_leaddetails.company) like '$search%')";
             // $page=$_REQUEST['go']-1;
         } else {
             $sql = "SELECT count(*) FROM vtiger_leaddetails inner join vtiger_crmentity on vtiger_crmentity.crmid=vtiger_leaddetails.leadid 
@@ -84,7 +88,7 @@ class MailMerge_Leads_View extends Vtiger_Index_View {
   LEFT JOIN vtiger_groups
   	ON vtiger_groups.groupid = vtiger_crmentity.smownerid
   left join vtiger_users on vtiger_users.id = vtiger_crmentity.smownerid
-  where vtiger_crmentity.deleted=0 and (upper(vtiger_leaddetails.firstname) like '$search%') LIMIT $offset, $rec_limit";
+  where vtiger_crmentity.deleted=0 and (upper(vtiger_leaddetails.firstname) like '$search%' OR upper(vtiger_leaddetails.lastname) like '$search%' OR upper(vtiger_leaddetails.company) like '$search%') LIMIT $offset, $rec_limit";
         } else {
             $sql = "SELECT vtiger_leaddetails.leadid,vtiger_leaddetails.company,vtiger_leaddetails.firstname,vtiger_leaddetails.lastname,vtiger_leaddetails.email,vtiger_leaddetails.designation FROM vtiger_leaddetails inner join vtiger_crmentity on vtiger_crmentity.crmid=vtiger_leaddetails.leadid 
   inner join vtiger_leadsubdetails on vtiger_leadsubdetails.leadsubscriptionid=vtiger_leaddetails.leadid 

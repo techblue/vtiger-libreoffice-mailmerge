@@ -14,12 +14,17 @@ class MailMerge_Accounts_View extends Vtiger_Index_View {
         $srcModule = $request->get('src_module');
         $viewer = $this->getViewer($request);
         $db = PearDatabase::getInstance();
-
+      
 
 
         $rec_limit = 20;
         /* Get total number of records */
         $search = $_REQUEST['search'];
+          if($_REQUEST['submit']=='Search'){
+            $search='%'.$_REQUEST['search'];
+        }
+
+        
         if (isset($_REQUEST['search'])) {
             $sql = "SELECT DISTINCT count(*) FROM vtiger_account inner join vtiger_crmentity on vtiger_crmentity.crmid=vtiger_account.accountid 
 				inner join vtiger_accountbillads on vtiger_account.accountid=vtiger_accountbillads.accountaddressid 
