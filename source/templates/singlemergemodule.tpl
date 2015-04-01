@@ -21,7 +21,12 @@
                             <option value="{$RECORD['templateid']}">{$RECORD['filename']}</option>
                         {/foreach}
 
-                    </select>
+                    </select>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    
+                    <b>Latch with Document: </b>&nbsp;&nbsp;
+                    <input type="checkbox" name="latch_doc[]" class="" value="yes" checked="checked" />
+                      
 
                     <br/>   
                     <input type="hidden" name="check_list[]" value="{$RECOR}">

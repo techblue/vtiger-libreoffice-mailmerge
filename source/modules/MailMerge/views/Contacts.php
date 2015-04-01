@@ -19,6 +19,10 @@ class MailMerge_Contacts_View extends Vtiger_Index_View {
         $rec_limit = 20;
         /* Get total number of records */
         $search = $_REQUEST['search'];
+           if($_REQUEST['submit']=='Search'){
+            $search='%'.$_REQUEST['search'];
+        }
+        
         if (isset($_REQUEST['search'])) {
            $sql = "SELECT count(*) FROM vtiger_contactdetails inner join vtiger_crmentity on vtiger_crmentity.crmid = vtiger_contactdetails.contactid 
 				inner join vtiger_contactaddress on vtiger_contactdetails.contactid = vtiger_contactaddress.contactaddressid 
@@ -39,7 +43,7 @@ class MailMerge_Contacts_View extends Vtiger_Index_View {
 				left join vtiger_users as usersAccounts on usersAccounts.id = crmentityAccounts.smownerid 
 				LEFT JOIN vtiger_groups as groupsAccounts
 					ON groupsAccounts.groupid = vtiger_crmentity.smownerid
-				where vtiger_crmentity.deleted=0 and (crmentityAccounts.deleted is NULL or crmentityAccounts.deleted <> 1) and (upper(vtiger_contactdetails.firstname) like '$search%') ";
+				where vtiger_crmentity.deleted=0 and (crmentityAccounts.deleted is NULL or crmentityAccounts.deleted <> 1) and (upper(vtiger_contactdetails.firstname) like '$search%' OR upper(vtiger_contactdetails.lastname) like '$search%') ";
         } else {
             $sql = "SELECT count(*) FROM vtiger_contactdetails inner join vtiger_crmentity on vtiger_crmentity.crmid = vtiger_contactdetails.contactid 
 				inner join vtiger_contactaddress on vtiger_contactdetails.contactid = vtiger_contactaddress.contactaddressid 
@@ -108,7 +112,7 @@ class MailMerge_Contacts_View extends Vtiger_Index_View {
 				left join vtiger_users as usersAccounts on usersAccounts.id = crmentityAccounts.smownerid 
 				LEFT JOIN vtiger_groups as groupsAccounts
 					ON groupsAccounts.groupid = vtiger_crmentity.smownerid
-				where vtiger_crmentity.deleted=0 and (crmentityAccounts.deleted is NULL or crmentityAccounts.deleted <> 1) and (upper(vtiger_contactdetails.firstname) like '$search%') ".
+				where vtiger_crmentity.deleted=0 and (crmentityAccounts.deleted is NULL or crmentityAccounts.deleted <> 1) and (upper(vtiger_contactdetails.firstname) like '$search%' OR upper(vtiger_contactdetails.lastname) like '$search%') ".
        "LIMIT $offset, $rec_limit";
         } else {
            $sql = "SELECT vtiger_contactdetails.contactid,vtiger_contactdetails.contact_no,vtiger_contactdetails.firstname,vtiger_contactdetails.lastname,vtiger_contactdetails.email,vtiger_contactdetails.phone,vtiger_contactdetails.title,vtiger_contactdetails.mobile FROM vtiger_contactdetails inner join vtiger_crmentity on vtiger_crmentity.crmid = vtiger_contactdetails.contactid 

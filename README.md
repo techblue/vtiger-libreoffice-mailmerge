@@ -1,4 +1,4 @@
-Vtiger-LibreOffice-MailMerge V1.0.2
+Vtiger-LibreOffice-MailMerge V1.0.4
 ===================
 
 **Description**
@@ -12,6 +12,8 @@ Vtiger Mail Merge Module has following features.
 4. User can directly download mail merge templates. [v1.0.0]
 5. Specific module properties can be viewed using Module Mail Merge Field List. [v1.0.0]
 6. Single record merge from detail view of particular record [v1.0.1]
+7. Option for search record for all modules in mail merge. [v1.0.4]
+8. Option for selecting latching of merged document with vtiger document [v1.0.4]
 
 
 
@@ -90,5 +92,15 @@ Steps for single record merge from detail view of particular record [V1.0.1]
 - click on 'more' option there you will get 'merge'option in dropdown.
 - You will get template list by selecting template you can generate the merged document.
 
+search record option [V1.0.4]
+--------
+
+- you can search records in mail merge module section by name
+
+latch document option [V1.0.4]
+--------
+
+- We provide a checkbox option to enable or disable latching merged document with vtiger document module
  
+
 TAGS - mail-merge-vtiger vtiger-mail-merge libre-mail-merge-vtiger

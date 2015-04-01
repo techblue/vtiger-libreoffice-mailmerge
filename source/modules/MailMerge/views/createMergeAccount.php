@@ -82,6 +82,12 @@ else if(document.all)
 }
 </script>";
         }
+        //for latch with document
+        if (isset($_REQUEST['latch_doc'])) {
+            $latch_doc = $_REQUEST['latch_doc'];
+            $latch = $latch_doc[0];
+        } else
+            $latch = '';
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<for mass merge>>>>>>>>>>>>>>>>>>>>>>>>>>>
 //$mass_merge = $_REQUEST['allselectedboxes'];
@@ -352,6 +358,7 @@ else if(document.all)
                 $new_filestyle = crmmerge($csvheader, $stycontent, $idx, 'htmlspecialchars', $csvdata);
                 packen($entityid . $filename, $wordtemplatedownloadpath, $temp_dir, $new_filecontent, $new_filestyle);
 
+                if($latch=='yes'){
                // echo $wordtemplatedownloadpath.$entityid.$filename;
                // echo mime_content_type($wordtemplatedownloadpath.$entityid.$filename);
                  //latching merged documents with vtiger documents module
@@ -408,7 +415,9 @@ else if(document.all)
             
             $newfilepath=$wordtemplatedownloadpath. $crmid1.'_'.$entityid . $filename;
             rename($wordtemplatedownloadpath.$entityid.$filename,$newfilepath );
-            
+                }else{
+                    $newfilepath=$wordtemplatedownloadpath.$entityid.$filename;
+                }
                 
                 
                 echo "&nbsp;&nbsp;<font size=+1><b><a href=$newfilepath class='btn btn-info' style='width:400px;'>" . 'Download Merged File (' .$aname.')'. "</a></b></font><br>";
@@ -475,7 +484,7 @@ else if(document.all)
                 fwrite($handle, $new_filecontent);
                 fclose($handle);
                 
-                
+                if($latch=='yes'){
                  //latching merged documents with vtiger documents module
           $rs1 = $db->pquery("select max(crmid) as id from vtiger_crmentity");
             if ($row = $db->fetch_row($rs1)) {
@@ -530,7 +539,9 @@ else if(document.all)
             
             $newfilepath=$wordtemplatedownloadpath. $crmid1.'_'.$entityid . $filename;
             rename($wordtemplatedownloadpath.$entityid.$filename,$newfilepath );
-            
+                }else{
+                    $newfilepath=$wordtemplatedownloadpath.$entityid.$filename;
+                }
                 
                 echo "&nbsp;&nbsp;<font size=+1><b><a href=$newfilepath class='btn btn-info' style='width:400px;'>" . 'Download Merged File (' .$aname.')'. "</a></b></font><br>";
             }
